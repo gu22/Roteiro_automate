@@ -33,24 +33,28 @@ except NoSuchElementException:
 
 dt = easygui.enterbox(msg='Enter something.', title=' ', default='', strip=True)
 dt = dt.split(",")
+dt.sort()
+
 
 dt13=[]
-for i in range(0,13):
-    dt13.append(dt[i])
+# for i in range(13):
+    
     
 try:    
-    for i in range(0,13):
-        dt.remove(dt[i])
+    for i in range(13):
+        dt13.append(dt[0])
+        dt.remove(dt[0])
 except IndexError:
     pass
 
 print(dt)
 print("______________________")
 print(dt13)
-print("")
+print("\n")
 dt13 = ",".join(dt13)
 print("______________________")
 print(dt13)
+print("\n")
 
 
 button = easygui.msgbox("Aguarde","aguarde")
@@ -64,21 +68,23 @@ except NoSuchElementException:
 cxtexto.send_keys(dt13)
 cxtexto.send_keys(Keys.RETURN)
 
-time.sleep(20)
+time.sleep(10)
 controle = 1
 contadori = 1
-contadorf = 39
+contadorf = 57
 if button == "OK":
     while contadori <= contadorf:
         
         if controle == 14:
             dt13=[]
-            for i in range(0,13):
-                dt13.append(dt[i])
+            # for i in range(0,13):
+            #     dt13.append(dt[i])
     
             try:    
-                for i in range(0,13):
-                    dt.remove(dt[i])
+                for i in range(13):
+                    dt13.append(dt[0])
+                    dt.remove(dt[0])
+        
             except IndexError:
                 pass
             
@@ -86,8 +92,8 @@ if button == "OK":
             print(dt)
             print("______________________")
             print(dt13)
-            print("")
-            
+            print("\n")
+            dt.sort()
             
             
             fechar = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/div[9]/div/table/tbody/tr/td/table/tbody/tr/td[1]/img").click()
@@ -99,7 +105,7 @@ if button == "OK":
             cxtexto.send_keys(Keys.RETURN)
             
             controle = 1
-            time.sleep(20)
+            time.sleep(10)
         # if controle == 13:
         #     for i in range(1,14):
         #         rolagem = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div/div[3]/div[4]/img[3]")
