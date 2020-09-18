@@ -156,6 +156,8 @@ if button == "OK":
         check.click()
         controle += 1
         contadori += 1
+        with open("log.txt", "a", encoding="utf-8") as f:
+            f.write(arquivo)
         time.sleep(1)
 
 driver.close()
