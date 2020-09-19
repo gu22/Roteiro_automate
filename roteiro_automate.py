@@ -71,7 +71,7 @@ cxtexto.send_keys(Keys.RETURN)
 time.sleep(10)
 controle = 1
 contadori = 1
-contadorf = 57
+contadorf = 390
 if button == "OK":
     while contadori <= contadorf:
         
@@ -92,6 +92,8 @@ if button == "OK":
             print(dt)
             print("______________________")
             print(dt13)
+            print("\n")
+            print(contadorf)
             print("\n")
             dt.sort()
             
@@ -158,6 +160,7 @@ if button == "OK":
         contadori += 1
         with open("log.txt", "a", encoding="utf-8") as f:
             f.write(arquivo)
+        
         time.sleep(1)
 
 driver.close()
