@@ -93,7 +93,7 @@ if button == "OK":
             print("______________________")
             print(dt13)
             print("\n")
-            print(contadorf)
+            print(contadori)
             print("\n")
             dt.sort()
             
