@@ -52,7 +52,16 @@ for idx in indexofix2:
     # else:
     #     a+=1
         
-print(a)
+# print(a)
+# ex = len(indexofix2)-a
+# a+=1
+# for i in range (ex):
+  
+#TIP re.findall("[BR\s]+[0-9]{5}",indexofix2[1])
+#TIP re.findall("[BR]+[0-9]{3}",indexofix2[9])
+    
+  
+    
 # for item in Path_file:
 #     file = os.path.join(Path_name,item)
 #     rota = open(file,'r',encoding='utf8')
