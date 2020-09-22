@@ -3,7 +3,13 @@
 Created on Thu Sep 17 10:23:43 2020
 
 @author: glpyz
+
+PEGAR INFORMAÇÕES TMS
+
+
 """
+
+
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys

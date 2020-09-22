@@ -1,4 +1,11 @@
 # -*- coding: utf-8 -*-
+"""
+SEPARA DT PARA EXTRAÇÃO
+
+
+"""
+
+
 import datetime
 import easygui
 import os, glob

@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
-
+"""
+TRANFORMA HTML EM TEXTO
+"""
 import easygui
 from bs4 import BeautifulSoup
 import tabulate
@@ -16,8 +18,17 @@ from shutil import copyfile
 
 
 #user_dir = easygui.diropenbox()
-filex= (easygui.fileopenbox())
-filex = open(filex,'r',encoding='utf8')
+# filex= (easygui.fileopenbox())
+user_dir = easygui.diropenbox()
+
+Path_name = user_dir
+Path_file = os.listdir(Path_name)
+
+contador = len(Path_file)
+
+for item in Path_file:
+    file = os.path.join(Path_name,item)
+    filex = open(file,'r',encoding='utf8')
 # Path_name = user_dir
 # Path_file = os.listdir(Path_name)
 # Files = os.path.join(Path_name,Path_file)
@@ -31,32 +42,41 @@ filex = open(filex,'r',encoding='utf8')
 # file2 = open("D:\gusan\Documents\PROGRAMAÇÃO\GitHub\beautifulsoup_testes\parse_html.html","r")
 
 
-soup = BeautifulSoup(filex,'html.parser')
+    soup = BeautifulSoup(filex,'html.parser')
 
-# print(soup.prettify())
-print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")
-print(list(soup.children))
-print("\n yyyyyyyy")
-print([type(item) for item in list(soup.children)])
+# # print(soup.prettify())
+# print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")
+    list(soup.children)
+# print("\n yyyyyyyy")
+# print([type(item) for item in list(soup.children)])
 
-html = list(soup.children)
+# html = list(soup.children)
 
-loc = soup.find_all('span',class_="alkDirectionCol")
+    html = soup.find_all('span',class_="alkDirectionCol")
 
 #loc1 = soup.find_all('a',class_="reference external")
 # loc2 = soup.find_all('b')
-
-text =[]
-# text2 =[]
-c = 0
-for i in loc:
-    text.append(str(loc[c].string))
-    # text2.append(str(loc[c]))
-    c+=1
-# #loc = soup.find('a')
-
-# table = [["%s"%text[0],"%s"%text[1]],["%s"%text2[0],"%s"%text2[1]]]
-
+    dt = item
+    dt = dt.split(".")[0]
+    text =[]
+    # text2 =[]
+    c = 0
+    filedt= ((os.path.join(Path_name,dt)+'.txt'))
+    for i in html:
+        text.append(str(html[c].string))
+        # text2.append(str(loc[c]))
+        
+        with open(filedt, "a", encoding="utf-8") as escritor:
+            try:
+                escritor.write(text[c])
+                escritor.write("\n")
+            except:
+                pass
+        c+=1
+    # #loc = soup.find('a')
+    
+    # table = [["%s"%text[0],"%s"%text[1]],["%s"%text2[0],"%s"%text2[1]]]
+# "{}.txt".format(dt)
 
 # print(text)
 # print(text2)

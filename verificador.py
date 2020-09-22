@@ -3,6 +3,9 @@
 Created on Mon Sep 21 11:53:02 2020
 
 @author: glpyz
+
+
+VERIFICA HTML EXISTENTES
 """
 
 import datetime
@@ -11,7 +14,7 @@ import os, glob
 import os.path
 import sys
 import glob
-from os import *
+
 
 import os.path
 import easygui
@@ -19,7 +22,7 @@ import sys
 import glob
 import shutil
 import os
-from os import *
+
 from shutil import copyfile
 
 user_dir = easygui.diropenbox()
