@@ -71,7 +71,9 @@ cxtexto.send_keys(Keys.RETURN)
 time.sleep(10)
 controle = 1
 contadori = 1
-contadorf = 390
+contadorf = len(dt)
+ff1 = 0
+ff2 = 0
 if button == "OK":
     while contadori <= contadorf:
         
@@ -97,10 +99,19 @@ if button == "OK":
             print("\n")
             dt.sort()
             
+            try:
+                fechar = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/div[9]/div/table/tbody/tr/td/table/tbody/tr/td[1]/img").click()
+            except NoSuchElementException:
+                fechar = driver.find_element_by_xpath("/html/body/div[11]/div[1]/div/div[2]/img")
+               
             
-            fechar = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/div[9]/div/table/tbody/tr/td/table/tbody/tr/td[1]/img").click()
             time.sleep(5)
-            pesquisa = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/div[7]/div/table/tbody/tr/td/table/tbody/tr/td[1]/img").click()
+            
+            try:
+                pesquisa = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/div[7]/div/table/tbody/tr/td/table/tbody/tr/td[1]/img").click()
+            except NoSuchElementException:
+                pesquisa = driver.find_element_by_xpath("")
+                
             # pesquisa = driver.find_element_by_xpath("/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div/div[3]/div[4]/img[3]")
             cxtexto = driver.find_element_by_name("isc_TextAreaItem_0")
             cxtexto.send_keys(dt13)
@@ -146,11 +157,27 @@ if button == "OK":
         with open(arquivo2, "w", encoding="utf-8") as f:
             f.write(driver.page_source)
                 
-        time.sleep(1)        
-        fechar = driver.find_element_by_xpath('/html/body/div[12]/div[1]/div/div[2]/img')
+        time.sleep(1)
+        
+        
+        while True:
+            try:
+                fechar = driver.find_element_by_xpath('/html/body/div[{}]/div[1]/div/div[2]/img'.format(ff1))
+                break
+            except:
+               ff1+=1 
+                
         fechar.click()
         time.sleep(1)
-        fechar = driver.find_element_by_xpath('/html/body/div[10]/div[1]/div/div[9]/div/img')
+        
+        while True:
+            try:
+                fechar = driver.find_element_by_xpath('/html/body/div[{}]/div[1]/div/div[9]/div/img'.format(ff2))
+                break
+            except:
+               ff2+=1 
+       
+        
         fechar.click()
         
         time.sleep(3)
@@ -160,6 +187,8 @@ if button == "OK":
         contadori += 1
         with open("log.txt", "a", encoding="utf-8") as f:
             f.write(arquivo)
+            f.write("\n")
+            
         
         time.sleep(1)
 
