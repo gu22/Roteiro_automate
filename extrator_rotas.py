@@ -51,14 +51,29 @@ for idx in indexofix2:
         
     # else:
     #     a+=1
-        
+co =0
+rota = []
+
+cidade=veriq+".txt"
+
+for i in indexr:
+    check1 = re.findall("[BR\s]+[0-9]{5}",indexr[co])
+    check2 = re.findall("([A-Z]{2})+[0-9]{3}",indexr[co])
+    if not check1:
+        if check2:
+            rota.append(check2)
+            with open(cidade,"a",encoding="utf-8") as escritor:
+                escritor.write()
+            
+                
 # print(a)
 # ex = len(indexofix2)-a
 # a+=1
 # for i in range (ex):
   
 #TIP re.findall("[BR\s]+[0-9]{5}",indexofix2[1])
-#TIP re.findall("[BR]+[0-9]{3}",indexofix2[9])
+#TIP >>> desconsiderar >> re.findall("[BR]+[0-9]{3}",indexofix2[9])
+#TIP re.findall("([A-Z]{2})+[0-9]{3}",indexofix2[9])
     
   
     
