@@ -34,7 +34,7 @@ except NoSuchElementException:
 dt = easygui.enterbox(msg='Enter something.', title=' ', default='', strip=True)
 dt = dt.split(",")
 dt.sort()
-
+valor = len(dt)
 
 dt13=[]
 # for i in range(13):
@@ -71,9 +71,11 @@ cxtexto.send_keys(Keys.RETURN)
 time.sleep(10)
 controle = 1
 contadori = 1
-contadorf = len(dt)
+contadorf = valor
 ff1 = 0
 ff2 = 0
+
+print("{} contador\n\n".format(contadorf))
 if button == "OK":
     while contadori <= contadorf:
         
@@ -195,3 +197,4 @@ if button == "OK":
 driver.close()
 #print(driver.get_log("browser"))                                   
 # assert "No results found." not in driver.page_source
+ 

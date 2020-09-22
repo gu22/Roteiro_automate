@@ -33,7 +33,7 @@ for i in range(1871):
         if material in arq.loc[i][6]:
             if not arq.loc[i][22] in cidade:
                cidade.append( arq.loc[i][22])
-               if not arq.loc[i][9] in dtx:
+               if not  arq.loc[i][9] in dtx:
                    dtx.append(arq.loc[i][9])
                    print("<<< Entrou {} {} >>>>\n".format((arq.loc[i][22]),(arq.loc[i][9])))
                    #escritor.write("{} : {} ,{} \n".format(i,(arq.loc[i][22]),(arq.loc[i][9])))
