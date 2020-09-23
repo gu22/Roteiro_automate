@@ -41,7 +41,11 @@ indexr = []
 
 c=0
 a=0
+
+# Pega o nome da cicade 
 veriq = (" ").join(re.findall("[A-Za-z]\w+",index_busca[c]))
+
+# extraido os textos
 for idx in index_acha:
     if veriq in idx:
         indexr.append(idx)
@@ -57,8 +61,12 @@ for idx in index_acha:
 co =0
 rota = []
 adeq =[]
-cidade=veriq+".txt"
 
+#nome arquivo
+cidade= veriq
+arq_city = cidade +".txt"
+
+# extaindo as rotas
 for i in indexr:
     check1 = re.findall("[BR\s]+[0-9]{5}",i)
     check2 = re.findall("(([A-Z]{2})+[0-9]{3})",i)
@@ -82,6 +90,8 @@ for i in indexr:
 print(rota)
 
 rotas =[]
+
+# organizando as rotas
 for item in adeq:
     text = item[0:2]+"-"+item[2:5]
     rotas.append(text)
