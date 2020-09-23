@@ -87,6 +87,7 @@ for item in adeq:
     rotas.append(text)
 
 with open("ROTAS_ok.txt","a",encoding="utf-8") as escritor:
+    escritor.write((cidade+";"))
     escritor.write(",".join(rotas))
     escritor.write("\n")
 
