@@ -15,10 +15,10 @@ from shutil import copyfile
 
 
 # cidade dt
-index= easygui.fileopenbox()
+index= easygui.fileopenbox(default="*.txt")
 
 # rotas para extrair
-index2= easygui.fileopenbox()
+index2= easygui.fileopenbox(default="*.txt")
 
 
 # user_dir = easygui.diropenbox()

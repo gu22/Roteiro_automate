@@ -30,11 +30,16 @@ arq = pd.read_excel(data,1)
 cidade=[]
 dtx=[]
 
-
+mat = []
+with open("option.txt","r",encoding="utf-8") as option:
+    for i in option:
+        mat.append(i)
 
 #escritor = open('cch_dt.txt','a',encoding="utf-8")
 
-material= "ROUNDUP ORIGINAL DI L"
+# material= "ROUNDUP ORIGINAL DI L"
+material= easygui.indexbox(choices = (mat[0],mat[1],mat[2],mat[3]))
+                           
 for i in range(1871):
     try:
         if material in arq.loc[i][6]:
