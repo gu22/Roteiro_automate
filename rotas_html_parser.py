@@ -74,7 +74,7 @@ for item in Path_file:
                 pass
         c+=1
     # #loc = soup.find('a')
-    
+filex.close()  
     # table = [["%s"%text[0],"%s"%text[1]],["%s"%text2[0],"%s"%text2[1]]]
 # "{}.txt".format(dt)
 

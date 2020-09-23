@@ -13,7 +13,7 @@ import os.path
 import sys
 import glob
 
-
+import re
 from easygui import *
 
 import openpyxl
@@ -30,16 +30,25 @@ arq = pd.read_excel(data,1)
 cidade=[]
 dtx=[]
 
-mat = []
-with open("option.txt","r",encoding="utf-8") as option:
-    for i in option:
-        mat.append(i)
+mat= ["SECO","LIQUIDO"]
+# mat = []
+# with open("option.txt","r",encoding="utf-8") as option:
+#     for i in option:
+#         mat.append(i)
 
 #escritor = open('cch_dt.txt','a',encoding="utf-8")
 
 # material= "ROUNDUP ORIGINAL DI L"
-material= easygui.indexbox(choices = (mat[0],mat[1],mat[2],mat[3]))
-                           
+escolha= easygui.indexbox(choices = ("Seco","Liquido"))
+     
+# material = mat[escolha]
+# material= re.findall('[A-Z]+',material)
+# material = " ".join(material)
+
+material = mat[escolha]
+cd = "cch"    
+
+#range é todas as linha da tabela                  
 for i in range(1871):
     try:
         if material in arq.loc[i][6]:
@@ -49,7 +58,7 @@ for i in range(1871):
                    dtx.append(arq.loc[i][9])
                    print("<<< Entrou {} {} >>>>\n".format((arq.loc[i][22]),(arq.loc[i][9])))
                    #escritor.write("{} : {} ,{} \n".format(i,(arq.loc[i][22]),(arq.loc[i][9])))
-                   with open("cch_dt.txt", "a",encoding="utf-8") as escritor:
+                   with open((cd+"_"+material)+".txt", "a",encoding="utf-8") as escritor:
                         escritor.write("{} : {} \t{} \n".format(i,(arq.loc[i][22]),(arq.loc[i][9])))
                    #     #print("{} : {} ,{} \n".format(i,(arq.loc[i][22]),(arq.loc[i][9])))
                    #     escritor.write("Teste")
@@ -59,7 +68,7 @@ for i in range(1871):
                    print("<<< Entrou {} {} >>>>\n".format((arq.loc[i][22]),(arq.loc[ab][9])))
                    #escritor.write("{} : {} ,{} \n".format(i,(arq.loc[i][22]),(arq.loc[ab][9])))
        
-                   with open("cch_dt.txt","a",encoding="utf-8") as escritor:
+                   with open((cd+"_"+material)+".txt","a",encoding="utf-8") as escritor:
                         escritor.write("{} : {} \t{} \n".format(i,(arq.loc[i][22]),(arq.loc[ab][9])))
         else:
             print("Passou {}".format(arq.loc[i][22]))
