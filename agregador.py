@@ -41,36 +41,53 @@ with open(data2,"r",encoding=("utf-8")) as txt:
 verificador = []
 for i in cat:
     add = (" ").join(re.findall("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+[^A-Z0-9]{2}\w+",i))
-    verificador.append(add)
+    if ";BR" in add:
+        add = add.split(";BR")[0]
+        verificador.append(add)
+    else:
+        verificador.append(add)
 
 contador = 0  
 final = []  
-for i in range(len(arq.index)):
-    contador = 0
-    con = 0
-    for g in verificador:
-        if arq.loc[i][0] == g:
-            final.append(cat[contador])
+contador = 0
+con = 0
+
+pandac = len(arq.index)
+
+for i in range(len(verificador)):
+    
+    for x in range(pandac):
+        if arq.loc[x][0] == verificador[i]:
+            final.append(cat[i])
+            print(verificador[i])
             
-            print("<<g: {} , cat: {} , contador: {} , arq: {}>>\n".format(g,(cat[contador]),contador,(arq.loc[i][0])))
         
-        else:
-            try:
-               print("<< g: {} , cat: {} , contador: {} , arq: {}>>\n".format(g,(cat[contador]),contador,(arq.loc[i][0])))
+    
+    
+    
+    # #for g in verificador:
+    #     # if arq.loc[i][0] == g:
+    #         final.append(cat[contador])
+            
+    #         print("<<g: {} , cat: {} , contador: {} , arq: {}>>\n".format(g,(cat[contador]),contador,(arq.loc[i][0])))
+        
+    #     # else:
+    #     #     try:
+    #            print("<< g: {} , cat: {} , contador: {} , arq: {}>>\n".format(g,(cat[contador]),contador,(arq.loc[i][0])))
                
                
-            except: 
-                final.append(cat[contador])
+    #         # except: 
+    #             final.append(cat[contador])
                 
                 # print("g: {} , cat: {} , contador: {} , arq: {}\n".format(g,(cat[contador]),contador,(arq.loc[i][0])))
-    contador+=1            
-    print("__panda {}, i {}__\n".format((arq.loc[i][0]),i))
+    # contador+=1            
+    # print("__panda {}, i {}__\n".format((arq.loc[i][0]),i))
                 
             
 with open("okok.txt","a",encoding=("utf-8")) as es:
     for i in final:
         es.write(i) 
-        es.write("\n")           
+        # es.write("\n")           
             
 
 # arq = open(data,"r",encoding='utf-8')
