@@ -40,11 +40,11 @@ with open(data2,"r",encoding=("utf-8")) as txt:
     
 verificador = []
 for i in cat:
-    add = (" ").join(re.findall("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]\w+",i))
+    add = (" ").join(re.findall("[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ]+[^A-Z0-9]{2}\w+",i))
     verificador.append(add)    
 # for i in range(len(arq.index)):
-    # for g in cat:
-    #     if arq.loc[i][0] in 
+#     for g in cat:
+#         if arq.loc[i][0] in verificador
 
 # arq = open(data,"r",encoding='utf-8')
 # print(arq.read())
