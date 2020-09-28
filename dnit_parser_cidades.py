@@ -69,7 +69,7 @@ for i in html:
 
     with open('CIDADES_DESTINO_DNIT_OK.txt', "a", encoding="utf-8") as escritor:
         try:
-            escritor.write(text[c])
+            escritor.write("{}:{}".format((c+1),text[c]))
             escritor.write("\n")
         except:
             pass
