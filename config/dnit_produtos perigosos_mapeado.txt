@@ -20,7 +20,7 @@ ORIGEM: 		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[1]/p
 -- ORIGEM/TEXT:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[1]/p[1]/span/div/div/div/input
 DESTINO:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[2]/p[1]/span/div/a/span
 -- DESTINO/TEXT		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[2]/p[1]/span/div/div/div/input
-
+============================================================================
 RODOVIAS:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[3]/p[1]/input
 ANO:			//*[@id="content"]/form/table/tbody/tr[1]/td[2]/input
 N RISCO:		//*[@id="content"]/form/table/tbody/tr[2]/td[2]/input

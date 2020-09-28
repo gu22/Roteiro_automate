@@ -44,7 +44,7 @@ cadastrar_rotas.click()
 
 #---------------- Cadastando Rotas ------------------------------#
 
-##--------- Definindo o produto---
+##--------- Definindo o produto\origem\destino--------------
 
 # produto = '//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div/a/span'
 # produto_liquido = 'na'
@@ -84,3 +84,30 @@ cidade_destino.click()
 cidade_destino = driver.find_element_by_css_selector('#content > form > table > tbody > tr:nth-child(4) > td > table > tbody:nth-child(3) > tr > td:nth-child(2) > p:nth-child(1) > span > div > div > ul > li:nth-child(3918)')
 cidade_destino.click()
 
+
+## HINT trocar numeração li
+cidade_origem = driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[1]/p[1]/span/div/a/span')
+cidade_origem.click()
+cidade_origem = driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[1]/p[1]/span/div/div/ul/li[1]')
+cidade_origem.click()
+
+##--------------Informações em texto --------------
+
+rodovias_texto = ("BR-3") # >> seguir tabela\dados
+ano_texto = ('2019')
+nrisco_texto = ("3")
+toneladas_texto = ("1000") #>> seguir tabela\dados
+
+
+rodovia =  driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[3]/p[1]/input')
+ano =  driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[1]/td[2]/input')
+nrisco = driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[2]/td[2]/input')
+toneladas =  driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[3]/p[2]/input')
+
+rodovia.send_keys(rodovias_texto)
+ano.send_keys(ano_texto)
+nrisco.send_keys(nrisco_texto)
+toneladas.send_keys(toneladas_texto)
+
+botao_salvarsair = driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[3]/tr/td/input[1]')
+botao_salvarsair.click()
