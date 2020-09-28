@@ -67,7 +67,7 @@ for i in html:
     text.append(str(html[c].string))
 # text2.append(str(loc[c]))
 
-    with open('CIDADES_DESTINO_DNIT_OK.txt', "a", encoding="utf-8") as escritor:
+    with open('CIDADES_ORIGEM_DNIT_OK.txt', "a", encoding="utf-8") as escritor:
         try:
             escritor.write("{}:{}".format((c+1),text[c]))
             escritor.write("\n")

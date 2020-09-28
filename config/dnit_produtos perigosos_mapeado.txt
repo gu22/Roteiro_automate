@@ -1,0 +1,58 @@
+http://sistemas.dnit.gov.br/cargasperigosas
+
+id -- email : 			__ac_name
+id -- password:			__ac_password
+classe--botao de acesso:	context	
+xpath -- botao acesso:		//*[@id="loginform"]/div[5]/input
+xpath -- meu perfil: 		//*[@id="nav"]/span[1]/li/a/span
+xpath -- botao criar rota:	//*[@id="example"]/tbody/tr[6]/td/b/span/input
+__________________________________________________________________________________________
+
+CADASTRO:
+TIPO PRODUTO: 		//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div/a/span
+-- TIPO/TEXT		//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div/div/div/input
+-- index		//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div/div/ul
+			//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div			
+>>			//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/select
+
+
+ORIGEM: 		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[1]/p[1]/span/div/a/span
+-- ORIGEM/TEXT:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[1]/p[1]/span/div/div/div/input
+DESTINO:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[2]/p[1]/span/div/a/span
+-- DESTINO/TEXT		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[2]/p[1]/span/div/div/div/input
+
+RODOVIAS:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[3]/p[1]/input
+ANO:			//*[@id="content"]/form/table/tbody/tr[1]/td[2]/input
+N RISCO:		//*[@id="content"]/form/table/tbody/tr[2]/td[2]/input
+TONELADAS:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[3]/p[2]/input
+SALVAR\CONTINUAR:	//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[3]/tr/td/input[2]
+SALVAR\SAIR:		//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[3]/tr/td/input[1]
+_____________________________________________________________________________
+
+VALORES DESTINO: //*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[2]/tr/td[2]/p[1]/span/div/div/ul
+		 CLASS = chosen-results
+
+---------------------------------------
+3077 - 9 - - RESIDUO PERIGOSO, SOLIDO, N.E. >> index 916; value = 946
+
+ORIGENS:	SP-Guararema
+		RS-Cachoeirinha
+		PR-Londrina
+		MT-Cuiabá
+		SP-São José dos Campos
+
+DESTINOS:	combinação estado + espaço + cidade (estado+" "+cidade) >> RS Água Santa
+
+
+
+
+
+
+/html/body/div[1]/div[2]/div/div[2]/div/form/table/tbody/tr[2]/td[1]/span/div/a/span
+/html/body/div[1]/div[2]/div/div[2]/div/form/table/tbody/tr[2]/td[1]/span/div/div/ul/li[12]  <li  index
+
+//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div/div/ul
+	//*[@id="content"]/form/table/tbody/tr[2]/td[1]/span/div/div/ul/li[1]
+	#content > form > table > tbody > tr:nth-child(2) > td:nth-child(1) > span > div > div > ul > li:nth-child(916)
+
+
