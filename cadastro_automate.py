@@ -27,7 +27,9 @@ tabela = pd.read_excel(data,2)
 
 index = len(tabela.index)
 
-c_origem = 2816
+
+#cch = 2816  lon = 3383
+c_origem = 3383
 
 
 #------- Iniciando site
@@ -93,7 +95,7 @@ time.sleep(2)
 #     print("Value is: %s" % option.get_attribute("value"))
 #     option.click()
 
-produto = driver.find_element_by_css_selector('#content > form > table > tbody > tr:nth-child(2) > td:nth-child(1) > span > div > div > ul > li:nth-child(916)')
+produto = driver.find_element_by_css_selector('#content > form > table > tbody > tr:nth-child(2) > td:nth-child(1) > span > div > div > ul > li:nth-child(918)')
 produto.click()
 
 
@@ -106,6 +108,7 @@ cidade_origem.click()
 
 ##--------------Informações em texto --------------
 #liquido 918  solido 916
+
 
 for i in range(index):
     
@@ -138,7 +141,7 @@ for i in range(index):
            
         # botao_salvarsair = driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[3]/tr/td/input[1]')
         # botao_salvarsair.click()
-
+        button = easygui.msgbox("Aguarde","aguarde")
         botao_salvarcont = driver.find_element_by_xpath('//*[@id="content"]/form/table/tbody/tr[4]/td/table/tbody[3]/tr/td/input[2]')
         botao_salvarcont.click()
         

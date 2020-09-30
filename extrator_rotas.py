@@ -15,7 +15,7 @@ from shutil import copyfile
 from unidecode import unidecode
 
 
-cd = ('CUI')
+cd = ('cch')
 
 
 # cidade dt
@@ -52,19 +52,20 @@ index_busca=[]
 for i in index_open:
     index_busca.append(i)
 
-catalogo = {}
-# catalogo = []
+# catalogo = {}
+catalogo = []
 for i in index_busca:
     cidade = unidecode(i)
     cidade = (((" ").join(re.findall("[A-Za-z]\w+",cidade))))
-# for i in index_busca:
-#     cidade = unidecode(i)
-#     cidade = (((" ").join(re.findall("[A-Za-z]\w+",cidade))))
-#     catalogo.append(cidade)
+# # for i in index_busca:
+# #     cidade = unidecode(i)
+# #     cidade = (((" ").join(re.findall("[A-Za-z]\w+",cidade))))
+# #     catalogo.append(cidade)
     
-    dt = re.findall("[0-9]{10}",i)
-    dt = dt[0]+".txt"
-    catalogo.update({cidade:dt})
+#     dt = re.findall("[0-9]{10}",i)
+#     dt = dt[0]+".txt"
+#     catalogo.update({cidade:dt})
+    catalogo.append(cidade)
 
 #------------------------------------------------------------------------------
     
@@ -100,11 +101,11 @@ explicito=[]
 #=============================================================================
 for item in Path_file:
     
-    for i in catalogo:
-        if item in catalogo[i]:
-            cidade = i
-        else:
-            pass
+    # for i in catalogo:
+    #     if item in catalogo[i]:
+    #         cidade = i
+    #     else:
+    #         pass
     
     file = os.path.join(Path_name,item)
     
@@ -128,13 +129,13 @@ for item in Path_file:
     
         
     for caminho in trajeto:
-        
-        if "Trimble" in caminho:
-            break
-        else:
-            roteiro.append(caminho)
-           
-               
+        for t in catalogo:
+            if t in caminho:
+                roteiro.append(caminho)
+                cidade = t
+            else:
+                roteiro.append(caminho)
+                
     
     contador+=1
     arquivo_open.close()
@@ -171,7 +172,7 @@ for item in Path_file:
             # text = item[0:2]+"-"+item[2:5]
             rodovias.append(text)
     
-    with open((".ROTAS_{}.txt".format(cd)),"a",encoding="utf-8") as escritor:
+    with open((".ROTAS_{} - final.txt".format(cd)),"a",encoding="utf-8") as escritor:
         escritor.write((cidade+";"))
         escritor.write(",".join(rodovias))
         escritor.write("\n")
