@@ -15,11 +15,12 @@ from shutil import copyfile
 from unidecode import unidecode
 
 
-cd = ('cch')
+
+cd = easygui.enterbox("Nome Cd")
 
 
 # cidade dt
-index= easygui.fileopenbox("Escolha o arquivo de orientacao",default="*.txt")
+# index= easygui.fileopenbox("Escolha o arquivo de orientacao",default="*.txt")
 
 # rotas para extrair
 #index2= easygui.fileopenbox(default="*.txt")
@@ -38,7 +39,7 @@ Path_file = os.listdir(Path_name)
 # Path_name = user_dir
 # Path_file = os.listdir(Path_name)
 
-index_open = open(index,'r',encoding='utf8')
+# index_open = open(index,'r',encoding='utf8')
 
 
 # ----------------------------------------------------------------------
@@ -48,15 +49,15 @@ index_open = open(index,'r',encoding='utf8')
 
 
 
-index_busca=[]
-for i in index_open:
-    index_busca.append(i)
+# index_busca=[]
+# for i in index_open:
+#     index_busca.append(i)
 
 # catalogo = {}
-catalogo = []
-for i in index_busca:
-    cidade = unidecode(i)
-    cidade = (((" ").join(re.findall("[A-Za-z]\w+",cidade))))
+# catalogo = []
+# for i in index_busca:
+#     cidade = unidecode(i)
+#     cidade = (((" ").join(re.findall("[A-Za-z]\w+",cidade))))
 # # for i in index_busca:
 # #     cidade = unidecode(i)
 # #     cidade = (((" ").join(re.findall("[A-Za-z]\w+",cidade))))
@@ -65,7 +66,7 @@ for i in index_busca:
 #     dt = re.findall("[0-9]{10}",i)
 #     dt = dt[0]+".txt"
 #     catalogo.update({cidade:dt})
-    catalogo.append(cidade)
+    # catalogo.append(cidade)
 
 #------------------------------------------------------------------------------
     
@@ -106,6 +107,8 @@ for item in Path_file:
     #         cidade = i
     #     else:
     #         pass
+    remessa = (item.split("."))[0]
+    
     
     file = os.path.join(Path_name,item)
     
@@ -116,25 +119,39 @@ for item in Path_file:
     #     out.append(arquivo_txt)
     #     testador+=1
     #     continue
-
+#---------- abrindo arquivo 
     arquivo_open = open (file,"r",encoding='utf-8')
     
-    
+## ---------------- pegando linhas do arquivo    
     trajeto = []
     
     for linha in arquivo_open:
         trajeto.append(unidecode(linha))
         
-    roteiro=[]
-    
+    name_arquivo = (trajeto[-1].split(","))[1]
+    name_arquivo = (" ").join(( re.findall("[A-Za-z]\w+",name_arquivo)))        
+   
+##-----------------------
         
+     
+        
+     
+    # roteiro=[]
+           
+    # for caminho in trajeto:
+    #     for t in catalogo:
+    #         if t in caminho:
+    #             roteiro.append(caminho)
+    #             cidade = t
+    #         else:
+    #             roteiro.append(caminho)
+   
+    
+    
+    roteiro = []       
     for caminho in trajeto:
-        for t in catalogo:
-            if t in caminho:
-                roteiro.append(caminho)
-                cidade = t
-            else:
-                roteiro.append(caminho)
+      roteiro.append(caminho)
+          
                 
     
     contador+=1
@@ -155,21 +172,21 @@ for item in Path_file:
                     rotas.append(check3)
                     adeq.append(check3[0][0])
                     #print (check2)
-                    with open(("{}_Extract.txt".format(cidade)),"a",encoding="utf-8") as escritor:
+                    with open(("{}-{}_Extract.txt".format(remessa,name_arquivo)),"a",encoding="utf-8") as escritor:
                         escritor.write(check3[0][0])
                         escritor.write("\n")
             else:
                 rotas.append(check2)
                 adeq.append(check2[0][0])
                  #print (check2)
-                with open(("{}_Extract.txt".format(cidade)),"a",encoding="utf-8") as escritor:
+                with open(("{}-{}_Extract.txt".format(remessa,name_arquivo)),"a",encoding="utf-8") as escritor:
                     escritor.write(check2[0][0])
                     escritor.write("\n")
                 
     else:
         rotas.append(check1)
         #print (check1)
-        with open(("{}_Extract.txt".format(cidade)),"a",encoding="utf-8") as escritor:
+        with open(("{}-{}_Extract.txt".format(remessa,name_arquivo)),"a",encoding="utf-8") as escritor:
             escritor.write(check1[0])
             escritor.write("\n")
 
@@ -183,7 +200,7 @@ for item in Path_file:
             rodovias.append(text)
     
     with open((".ROTAS_{} - final.txt".format(cd)),"a",encoding="utf-8") as escritor:
-        escritor.write((cidade+";"))
+        escritor.write((remessa+":"+name_arquivo+";"))
         escritor.write(",".join(rodovias))
         escritor.write("\n")
    

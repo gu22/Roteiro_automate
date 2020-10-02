@@ -47,7 +47,7 @@ mat= ["SECO","LIQUIDO"]
 
 #material = mat[escolha]
 material = "DTs_amostras"
-cd = "gua"    
+cd = easygui.enterbox("Qual o nome cd")    
 
 #range é todas as linha da tabela 
 
@@ -69,6 +69,7 @@ for i in range(len(arq)):
                else:
                    # ab = i+1
                    dtx.append(arq.loc[i][0])
+                   
                    print("<<< Entrou {} {} >>>>\n".format((arq.loc[i][22]),(arq.loc[i][0])))
                    #escritor.write("{} : {} ,{} \n".format(i,(arq.loc[i][22]),(arq.loc[ab][9])))
        

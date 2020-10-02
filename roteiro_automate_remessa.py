@@ -121,7 +121,7 @@ if button == "OK":
             dt.sort()
             
             time.sleep(2)
-            button = easygui.msgbox("Aguarde","aguarde")
+            # button = easygui.msgbox("Aguarde","aguarde")
             try:
                 caixa_remessa = driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div/div[3]/div[2]/div[1]/form/div/table/tbody/tr/td[2]/div/span/div/input')
                 print("caixa acessada\n")
@@ -194,7 +194,7 @@ if button == "OK":
                 
         mapa_select.click() 
         
-        
+        time.sleep(10)
         # botao do trajeto/roteiro
         try:
             roteiro = driver.find_element_by_xpath(("/html/body/div[{}]/div[2]/div/div/div[2]/div/div[1]/div[5]/div/table/tbody/tr/td").format(mapc))

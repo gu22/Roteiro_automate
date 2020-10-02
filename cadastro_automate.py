@@ -23,13 +23,13 @@ from unidecode import unidecode
 
 data = easygui.fileopenbox("Escolha o arquivo de orientacao, xmlx",default="*.xlsx")
 
-tabela = pd.read_excel(data,2)
+tabela = pd.read_excel(data,1)
 
 index = len(tabela.index)
 
 
-#cch = 2816  lon = 3383
-c_origem = 3383
+#cch = 2816  lon = 3383  cui = 2314 gua= 4986  sjc = 5337
+c_origem = 4986
 
 
 #------- Iniciando site
